@@ -19,11 +19,17 @@
     }
   },
   "projects": {
+    "shared-components": {
+      "tags": ["scope:shared"],
+      "implicitDependencies": []
+    },
     "store": {
-      "tags": []
+      "tags": ["scope:store"],
+      "implicitDependencies": []
+      // "implicitDependencies": ["shared-components"]
     },
     "store-e2e": {
-      "tags": [],
+      "tags": ["scope:store"],
       "implicitDependencies": ["store"]
     }
   }
