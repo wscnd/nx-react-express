@@ -19,6 +19,9 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": ["scope-api"]
+    },
     "shared-components": {
       "tags": ["scope:shared"],
       "implicitDependencies": []

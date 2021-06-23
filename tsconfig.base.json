@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-react-express/api": ["libs/api/src/index.ts"],
       "@nx-react-express/shared/components": [
         "libs/shared/components/src/index.ts"
       ],
