@@ -20,7 +20,8 @@
   },
   "projects": {
     "api": {
-      "tags": ["scope-api"]
+      "tags": ["scope:api"],
+      "implicitDependencies": []
     },
     "shared-components": {
       "tags": ["scope:shared"],
@@ -31,7 +32,7 @@
     },
     "store": {
       "tags": ["scope:store"],
-      "implicitDependencies": []
+      "implicitDependencies": ["api"]
     },
     "store-e2e": {
       "tags": ["scope:store"],
