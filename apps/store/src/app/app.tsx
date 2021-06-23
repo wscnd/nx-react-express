@@ -10,16 +10,14 @@ import { getAllGames } from '../fake-api';
 import styles from './app.module.scss';
 
 export function App() {
-  // return <div className={styles.app}>Hi 👋</div>;
   return (
-    <div className="container">
-      <div className="games-layout">
+    <div className={styles.container}>
+      <div className={styles['games-layout']}>
         {getAllGames().map((game) => (
-          <Card key={game.id} className="gamecard">
+          <Card key={game.id} className={styles['game-card']}>
             <CardActionArea>
               <CardMedia
-                className="game-card-media"
-                image={game.image}
+                className={styles['game-card-media']}
                 title={game.name}
               />
               <CardContent>
@@ -34,7 +32,7 @@ export function App() {
                   variant="body2"
                   color="textSecondary"
                   component="p"
-                  className="game-rating"
+                  className={styles['game-rating']}
                 >
                   <strong>Rating:</strong> {game.rating}
                 </Typography>
