@@ -5,10 +5,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { getAllGames } from '@nx-react-express/api';
 import { Header } from '@nx-react-express/shared/components';
 import { formatRating } from '@nx-react-express/shared/utils';
 
-import { getAllGames } from '../fake-api';
 import styles from './app.module.scss';
 
 export default function App() {
