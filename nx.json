@@ -23,10 +23,12 @@
       "tags": ["scope:shared"],
       "implicitDependencies": []
     },
+    "shared-util": {
+      "tags": ["scope:shared"]
+    },
     "store": {
       "tags": ["scope:store"],
       "implicitDependencies": []
-      // "implicitDependencies": ["shared-components"]
     },
     "store-e2e": {
       "tags": ["scope:store"],
