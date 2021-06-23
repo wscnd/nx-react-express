@@ -1,17 +1,13 @@
 import React, { Fragment } from 'react';
 
-import {
-  Link,
-  Route,
-  useHistory
-} from 'react-router-dom';
+import { Link, Route, useHistory } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { getAllGames } from '@nx-react-express/api';
+import { getAllGames } from '@nx-react-express/db';
 import { Header } from '@nx-react-express/shared/components';
 import { formatRating } from '@nx-react-express/shared/utils';
 import { GameDetail } from '@nx-react-express/store/ui';

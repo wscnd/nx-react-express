@@ -1,22 +1,25 @@
 {
   "version": 2,
   "projects": {
-    "api": {
-      "root": "libs/api",
-      "sourceRoot": "libs/api/src",
+    "api-local": {
+      "root": "libs/api-local",
+      "sourceRoot": "libs/api-local/src",
+    "db": {
+      "root": "libs/db",
+      "sourceRoot": "libs/db/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api/**/*.ts"]
+            "lintFilePatterns": ["libs/db/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api"],
+          "outputs": ["coverage/libs/db"],
           "options": {
-            "jestConfig": "libs/api/jest.config.js",
+            "jestConfig": "libs/db/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -113,7 +116,8 @@
           "options": {
             "buildTarget": "store:build",
             "hmr": true,
-            "port": 3001
+            "port": 3001,
+            "proxyConfig": "apps/store/proxy.conf.json"
           },
           "configurations": {
             "production": {

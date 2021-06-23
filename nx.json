@@ -19,7 +19,7 @@
     }
   },
   "projects": {
-    "api": {
+    "db": {
       "tags": ["scope:api"],
       "implicitDependencies": []
     },
@@ -32,7 +32,7 @@
     },
     "store": {
       "tags": ["scope:store"],
-      "implicitDependencies": ["api"]
+      "implicitDependencies": ["db"]
     },
     "store-e2e": {
       "tags": ["scope:store"],

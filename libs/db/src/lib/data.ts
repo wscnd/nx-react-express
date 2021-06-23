@@ -6,7 +6,7 @@ const games = [
     description:
       'Help your bug family claim the best real estate in a spilled can of beans.',
     price: 35,
-    rating: Math.random()
+    rating: Math.random(),
   },
   {
     id: 'chess-pie',
@@ -14,7 +14,7 @@ const games = [
     image: '/assets/chess.png', // 'https://media.giphy.com/media/iCZyBnPBLr0dy/giphy.gif',
     description: 'A circular game of Chess that you can eat as you play.',
     price: 15,
-    rating: Math.random()
+    rating: Math.random(),
   },
   {
     id: 'purrfection',
@@ -22,8 +22,8 @@ const games = [
     image: '/assets/cat.png', // 'https://media.giphy.com/media/12xMvwvQXJNx0k/giphy.gif',
     description: 'A cat grooming contest goes horribly wrong.',
     price: 45,
-    rating: Math.random()
-  }
+    rating: Math.random(),
+  },
 ];
 
 export const getAllGames = () => games;

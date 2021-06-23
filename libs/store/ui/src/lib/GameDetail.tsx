@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { getAllGames } from '@nx-react-express/api';
+import { getAllGames } from '@nx-react-express/db';
 
 /* eslint-disable-next-line */
 
