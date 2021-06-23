@@ -30,6 +30,19 @@
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.json"],
+      "extends": ["plugin:json/recommended"],
+      "plugins": ["json"],
+      "rules": {
+        "json/*": [
+          "error",
+          {
+            "allowComments": true
+          }
+        ]
+      }
     }
   ]
 }
