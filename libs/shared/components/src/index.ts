@@ -1,2 +1,2 @@
 /** Shared components go here */
-export * from './Header/Header';
+export * from './lib/Header';
