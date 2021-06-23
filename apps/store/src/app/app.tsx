@@ -19,6 +19,7 @@ export function App() {
               <CardMedia
                 className={styles['game-card-media']}
                 title={game.name}
+                image={game.image}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
