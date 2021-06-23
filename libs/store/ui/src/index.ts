@@ -1,1 +1,1 @@
-export * from './lib/store-ui';
+export * from './lib/GameDetail';
