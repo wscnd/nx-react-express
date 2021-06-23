@@ -22,22 +22,22 @@
         }
       }
     },
-    "shared-util": {
-      "root": "libs/shared/util",
-      "sourceRoot": "libs/shared/util/src",
+    "shared-utils": {
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/util/**/*.ts"]
+            "lintFilePatterns": ["libs/shared/utils/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/util"],
+          "outputs": ["coverage/libs/shared/utils"],
           "options": {
-            "jestConfig": "libs/shared/util/jest.config.js",
+            "jestConfig": "libs/shared/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

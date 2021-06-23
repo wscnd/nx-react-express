@@ -23,7 +23,7 @@
       "tags": ["scope:shared"],
       "implicitDependencies": []
     },
-    "shared-util": {
+    "shared-utils": {
       "tags": ["scope:shared"]
     },
     "store": {
