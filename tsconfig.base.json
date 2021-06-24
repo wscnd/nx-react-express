@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -19,6 +20,7 @@
       "@nx-react-express/shared/components": [
         "libs/shared/components/src/index.ts"
       ],
+      "@nx-react-express/shared/types": ["libs/shared/types/src/index.ts"],
       "@nx-react-express/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@nx-react-express/store/ui": ["libs/store/ui/src/index.ts"]
     }

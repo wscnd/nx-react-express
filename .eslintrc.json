@@ -14,22 +14,31 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:shared",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:types"]
               },
               {
                 "sourceTag": "scope:db",
-                "onlyDependOnLibsWithTags": ["scope:db"]
+                "onlyDependOnLibsWithTags": ["scope:db", "scope:types"]
+              },
+              {
+                "sourceTag": "scope:types",
+                "onlyDependOnLibsWithTags": ["scope:types"]
               },
               {
                 "sourceTag": "scope:api",
-                "onlyDependOnLibsWithTags": ["scope:api", "scope:db"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:api",
+                  "scope:db",
+                  "scope:types"
+                ]
               },
               {
                 "sourceTag": "scope:store",
                 "onlyDependOnLibsWithTags": [
                   "scope:store",
                   "scope:shared",
-                  "scope:api"
+                  "scope:api",
+                  "scope:types"
                 ]
               }
             ]
