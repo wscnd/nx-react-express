@@ -153,6 +153,14 @@
       "sourceRoot": "apps/store/src",
       "projectType": "application",
       "targets": {
+        "launch": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["nx run api:serve", "nx run store:serve"],
+            "color": true,
+            "parallel": true // it is parallel by default
+          }
+        },
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
