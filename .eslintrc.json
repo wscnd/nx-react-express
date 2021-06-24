@@ -17,6 +17,10 @@
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
+                "sourceTag": "scope:db",
+                "onlyDependOnLibsWithTags": ["scope:db"]
+              },
+              {
                 "sourceTag": "scope:api",
                 "onlyDependOnLibsWithTags": ["scope:api"]
               },
