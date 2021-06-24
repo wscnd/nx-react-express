@@ -12,6 +12,14 @@ import {
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.redirect('/api');
+});
+
+app.get('/api', (req, res) => {
+  res.send({ data: { routes: ['/api/games/$id', '/api/games'] } });
+});
+
 app.get('/api/games/:id', (req, res) => {
   res.json({ data: getGame(req.params.id) });
   res.end();
