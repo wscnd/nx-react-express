@@ -1,4 +1,8 @@
-import React, { Fragment } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState
+} from 'react';
 
 import {
   Route,
@@ -10,8 +14,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { getAllGames } from '@nx-react-express/db';
 import { Header } from '@nx-react-express/shared/components';
+import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils';
 import { GameDetail } from '@nx-react-express/store/ui';
 
@@ -19,12 +23,23 @@ import styles from './app.module.scss';
 
 export default function App() {
   const history = useHistory();
+  const [games, setGames] = useState<Game[]>([]);
+
+  useEffect(() => {
+    async function getGames() {
+      const request = await fetch('/api/games');
+      const { data }: { data: Game[] } = await request.json();
+      setGames(data);
+    }
+    getGames();
+  }, []);
+
   return (
     <Fragment>
       <Header />
       <div className={styles.container}>
         <div className={styles['games-layout']}>
-          {getAllGames().map((game) => (
+          {games.map((game) => (
             <Card
               key={game.id}
               className={styles['game-card']}
