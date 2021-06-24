@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "noFallthroughCasesInSwitch": true
   },
   "files": [],

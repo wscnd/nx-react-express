@@ -15,6 +15,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Header } from '@nx-react-express/shared/components';
+import { globalStyles } from '@nx-react-express/shared/styles';
 import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils';
 import { GameDetail } from '@nx-react-express/store/ui';
@@ -37,7 +38,7 @@ export default function App() {
   return (
     <Fragment>
       <Header />
-      <div className={styles.container}>
+      <div className={`${globalStyles.container}`}>
         <div className={styles['games-layout']}>
           {games.map((game) => (
             <Card
@@ -78,7 +79,7 @@ export default function App() {
         </div>
       </div>
 
-      <Route path="/game/:id" component={GameDetail} />
+      <Route path="/game/:id" render={(props) => <GameDetail {...props} />} />
     </Fragment>
   );
 }
