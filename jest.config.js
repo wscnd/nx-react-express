@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/store/ui',
     '<rootDir>/libs/db',
     '<rootDir>/apps/api',
+    '<rootDir>/libs/shared/styles',
   ],
 };
