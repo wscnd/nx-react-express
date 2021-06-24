@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 
-import { Link, Route, useHistory } from 'react-router-dom';
+import {
+  Route,
+  useHistory
+} from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

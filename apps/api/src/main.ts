@@ -5,10 +5,22 @@
 
 import * as express from 'express';
 
+import {
+  getAllGames,
+  getGame
+} from '@nx-react-express/db';
+
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
+app.get('/api/games/:id', (req, res) => {
+  res.json({ data: getGame(req.params.id) });
+  res.end();
+  // res.send({ message: 'Welcome to api!' });
+});
+
+app.get('/api/games', (req, res) => {
+  res.send({ data: getAllGames() });
+  res.end();
 });
 
 const port = process.env.port || 3333;

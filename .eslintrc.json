@@ -22,7 +22,7 @@
               },
               {
                 "sourceTag": "scope:api",
-                "onlyDependOnLibsWithTags": ["scope:api"]
+                "onlyDependOnLibsWithTags": ["scope:api", "scope:db"]
               },
               {
                 "sourceTag": "scope:store",
