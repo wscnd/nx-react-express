@@ -34,6 +34,9 @@
     "shared-hooks": {
       "tags": ["scope:shared"]
     },
+    "shared-redux": {
+      "tags": ["scope:redux"]
+    },
     "shared-styles": {
       "tags": ["scope:shared"]
     },

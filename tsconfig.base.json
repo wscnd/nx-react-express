@@ -21,6 +21,8 @@
         "libs/shared/components/src/index.ts"
       ],
       "@nx-react-express/shared/hooks": ["libs/shared/hooks/src/index.ts"],
+      "@nx-react-express/shared/redux": ["libs/shared/redux/src/index.ts"],
+      "@nx-react-express/shared/redux/*": ["libs/shared/redux/src/*"],
       "@nx-react-express/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@nx-react-express/shared/styles/*": ["libs/shared/styles/src/lib/*"],
       "@nx-react-express/shared/types": ["libs/shared/types/src/index.ts"],
