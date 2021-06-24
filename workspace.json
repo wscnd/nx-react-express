@@ -93,6 +93,27 @@
         }
       }
     },
+    "shared-hooks": {
+      "root": "libs/shared/hooks",
+      "sourceRoot": "libs/shared/hooks/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/hooks/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/hooks"],
+          "options": {
+            "jestConfig": "libs/shared/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-styles": {
       "root": "libs/shared/styles",
       "sourceRoot": "libs/shared/styles/src",
@@ -158,7 +179,7 @@
           "options": {
             "commands": ["nx run api:serve", "nx run store:serve"],
             "color": true,
-            "parallel": true // it is parallel by default
+            "parallel": true
           }
         },
         "build": {

@@ -31,6 +31,9 @@
       "tags": ["scope:shared"],
       "implicitDependencies": []
     },
+    "shared-hooks": {
+      "tags": ["scope:shared"]
+    },
     "shared-styles": {
       "tags": ["scope:shared"]
     },

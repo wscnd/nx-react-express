@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/db',
     '<rootDir>/apps/api',
     '<rootDir>/libs/shared/styles',
+    '<rootDir>/libs/shared/hooks',
   ],
 };
