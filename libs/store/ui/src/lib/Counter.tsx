@@ -1,29 +1,17 @@
 // import { useFetchBreedsQuery } from './features/dogs/dogs-api-slice';
 import './Counter.module.scss';
 
-import React, {
-  useCallback,
-  useState
-} from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import {
-  Button,
-  MenuItem,
-  Select
-} from '@material-ui/core';
+import { Button, MenuItem, Select } from '@material-ui/core';
 import {
   amountAdded,
-  incremented
-} from '@nx-react-express/shared/redux/features/counter/counter-slice';
-import {
-  useFetchBreedsQuery
-} from '@nx-react-express/shared/redux/features/dogs/dogs-api-slice';
-import {
-  useAppDispatch,
-  useAppSelector
-} from '@nx-react-express/shared/redux/hooks';
+  incremented,
+} from '@nx-react-express/redux/features/counter/counter-slice';
+import { useFetchBreedsQuery } from '@nx-react-express/redux/features/dogs/dogs-api-slice';
+import { useAppDispatch, useAppSelector } from '@nx-react-express/redux/hooks';
 
 import styles from './Counter.module.scss';
 

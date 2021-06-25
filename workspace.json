@@ -72,6 +72,27 @@
         }
       }
     },
+    "redux": {
+      "root": "libs/redux",
+      "sourceRoot": "libs/redux/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/redux/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux"],
+          "options": {
+            "jestConfig": "libs/redux/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-components": {
       "root": "libs/shared/components",
       "sourceRoot": "libs/shared/components/src",
@@ -109,27 +130,6 @@
           "outputs": ["coverage/libs/shared/hooks"],
           "options": {
             "jestConfig": "libs/shared/hooks/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-redux": {
-      "root": "libs/shared/redux",
-      "sourceRoot": "libs/shared/redux/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/redux/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/redux"],
-          "options": {
-            "jestConfig": "libs/shared/redux/jest.config.js",
             "passWithNoTests": true
           }
         }

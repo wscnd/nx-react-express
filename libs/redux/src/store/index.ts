@@ -8,13 +8,13 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer.reducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
-    [gameSlice.reducerPath]: gameSlice.reducer
+    [gameSlice.reducerPath]: gameSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
       .concat(apiSlice.middleware)
       .concat(gameSlice.middleware);
-  }
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -17,8 +17,8 @@ import Typography from '@material-ui/core/Typography';
 import {
   useGetGameByIdQuery,
   useGetGamesQuery
-} from '@nx-react-express/shared/redux/features/games/games-api-slice';
-import { useAppSelector } from '@nx-react-express/shared/redux/hooks';
+} from '@nx-react-express/redux/features/games/games-api-slice';
+import { useAppSelector } from '@nx-react-express/redux/hooks';
 import { globalStyles } from '@nx-react-express/shared/styles';
 import { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
@@ -44,7 +44,7 @@ export function GameDetail(props: GameDetailProps) {
     data: game = {} as Game,
     isFetching, // NOTE: first load only
     isLoading, // NOTE: Subsequent loading
-    isError
+    isError,
   } = useGetGameByIdQuery(props.match.params.id);
 
   useEffect(() => {

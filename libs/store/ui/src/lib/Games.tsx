@@ -1,13 +1,6 @@
-import React, {
-  useEffect,
-  useState
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {
-  Link,
-  Route,
-  useHistory
-} from 'react-router-dom';
+import { Link, Route, useHistory } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -16,8 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {
   useGetGameByIdQuery,
-  useGetGamesQuery
-} from '@nx-react-express/shared/redux/features/games/games-api-slice';
+  useGetGamesQuery,
+} from '@nx-react-express/redux/features/games/games-api-slice';
 import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
 
@@ -30,7 +23,7 @@ export function Games(props: GamesProps) {
   const {
     data: games = [],
     isFetching, // NOTE: first load only
-    isLoading // NOTE: Subsequent loading
+    isLoading, // NOTE: Subsequent loading
   } = useGetGamesQuery();
 
   if (isFetching) {

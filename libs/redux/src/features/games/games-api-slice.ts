@@ -1,8 +1,5 @@
 import { Game } from '@nx-react-express/shared/types';
-import {
-  createApi,
-  fetchBaseQuery
-} from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // NOTE: not mine and the one who generated it didn't care much to share the api key
 // TODO: use environment variables
@@ -17,7 +14,7 @@ function providesList<R extends { id: string | number }[], T extends string>(
   return resultsWithIds
     ? [
         { type: tagType, id: 'LIST' },
-        ...resultsWithIds.map(({ id }) => ({ type: tagType, id }))
+        ...resultsWithIds.map(({ id }) => ({ type: tagType, id })),
       ]
     : [{ type: tagType, id: 'LIST' }];
 }
@@ -25,7 +22,7 @@ function providesList<R extends { id: string | number }[], T extends string>(
 export const gameSlice = createApi({
   reducerPath: 'games',
   baseQuery: fetchBaseQuery({
-    baseUrl: '/api/'
+    baseUrl: '/api/',
   }),
   tagTypes: ['Games'],
   endpoints(builder) {
@@ -34,17 +31,17 @@ export const gameSlice = createApi({
         query: () => 'games',
         providesTags: (result) =>
           result ? result.map(({ id }) => ({ type: 'Games', id })) : ['Games'],
-        transformResponse: (rawResult: { data: Game[] }) => rawResult.data
+        transformResponse: (rawResult: { data: Game[] }) => rawResult.data,
       }),
       getGameById: builder.query<Game, string>({
         query(id: string) {
           return `games/search?id=${id}`;
         },
         providesTags: (result, error, id) => [{ type: 'Games', id }],
-        transformResponse: (rawResult: { data: Game }) => rawResult.data
-      })
+        transformResponse: (rawResult: { data: Game }) => rawResult.data,
+      }),
     };
-  }
+  },
 });
 
 export const { useGetGamesQuery, useGetGameByIdQuery } = gameSlice;

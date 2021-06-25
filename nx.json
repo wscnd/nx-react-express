@@ -27,15 +27,15 @@
       "tags": ["scope:db"],
       "implicitDependencies": []
     },
+    "redux": {
+      "tags": ["scope:redux"]
+    },
     "shared-components": {
       "tags": ["scope:shared"],
       "implicitDependencies": []
     },
     "shared-hooks": {
       "tags": ["scope:shared"]
-    },
-    "shared-redux": {
-      "tags": ["scope:redux"]
     },
     "shared-styles": {
       "tags": ["scope:shared"]
