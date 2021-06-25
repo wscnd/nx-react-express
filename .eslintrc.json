@@ -21,6 +21,10 @@
                 "onlyDependOnLibsWithTags": ["scope:db", "scope:types"]
               },
               {
+                "sourceTag": "scope:redux",
+                "onlyDependOnLibsWithTags": ["scope:redux", "scope:shared"]
+              },
+              {
                 "sourceTag": "scope:types",
                 "onlyDependOnLibsWithTags": ["scope:types"]
               },
@@ -38,7 +42,8 @@
                   "scope:store",
                   "scope:shared",
                   "scope:api",
-                  "scope:types"
+                  "scope:types",
+                  "scope:redux"
                 ]
               }
             ]
