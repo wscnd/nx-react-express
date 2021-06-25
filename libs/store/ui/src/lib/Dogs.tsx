@@ -1,4 +1,3 @@
-// import { useFetchBreedsQuery } from './features/dogs/dogs-api-slice';
 import './Dogs.module.scss';
 
 import React, {
@@ -7,25 +6,15 @@ import React, {
   useState
 } from 'react';
 
-import {
-  Link,
-  useHistory,
-  useParams,
-  useRouteMatch
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import {
-  Button,
   MenuItem,
   Select
 } from '@material-ui/core';
 import {
   useFetchBreedsQuery
 } from '@nx-react-express/redux/features/dogs/dogs-api-slice';
-import {
-  useAppDispatch,
-  useAppSelector
-} from '@nx-react-express/redux/hooks';
 
 import styles from './Dogs.module.scss';
 

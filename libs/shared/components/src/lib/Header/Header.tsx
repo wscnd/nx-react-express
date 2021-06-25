@@ -6,7 +6,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import {
   Button,
-  IconButton,
   makeStyles
 } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
@@ -39,7 +38,7 @@ export function Header(props: HeaderProps) {
   const { pages } = props;
 
   useEffect(() => {
-    console.log(props.pages);
+    console.log('pages', props.pages);
   }, [props.pages]);
 
   return (

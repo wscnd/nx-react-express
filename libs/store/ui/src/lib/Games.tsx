@@ -1,11 +1,7 @@
-import React, {
-  useEffect,
-  useState
-} from 'react';
+import React from 'react';
 
 import {
   Link as RouterLink,
-  Route,
   useHistory
 } from 'react-router-dom';
 
@@ -15,10 +11,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {
-  useGetGameByIdQuery,
   useGetGamesQuery
 } from '@nx-react-express/redux/features/games/games-api-slice';
-import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
 
 import styles from './Games.module.scss';
@@ -40,10 +34,7 @@ export function Games(props: GamesProps) {
   return (
     <div className={styles['games-layout']}>
       {games.map((game) => (
-        <Card
-          key={game.id}
-          className={styles['game-card']}
-        >
+        <Card key={game.id} className={styles['game-card']}>
           <CardActionArea component={RouterLink} to={`/game/${game.id}`}>
             <CardMedia
               className={styles['game-card-media']}

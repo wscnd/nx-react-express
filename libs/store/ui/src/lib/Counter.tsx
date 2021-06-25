@@ -1,27 +1,13 @@
-// import { useFetchBreedsQuery } from './features/dogs/dogs-api-slice';
 import './Counter.module.scss';
 
 import React, {
   useCallback,
-  useEffect,
-  useState
+  useEffect
 } from 'react';
 
+import { Button } from '@material-ui/core';
 import {
-  Link,
-  useHistory,
-  useParams,
-  useRouteMatch
-} from 'react-router-dom';
-
-import {
-  Button,
-  MenuItem,
-  Select
-} from '@material-ui/core';
-import {
-  amountAdded,
-  incremented
+  amountAdded
 } from '@nx-react-express/redux/features/counter/counter-slice';
 import {
   useAppDispatch,

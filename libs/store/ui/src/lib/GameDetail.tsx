@@ -1,11 +1,6 @@
 import './GameDetail.module.scss';
 
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useState
-} from 'react';
+import React, { useEffect } from 'react';
 
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -15,10 +10,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {
-  useGetGameByIdQuery,
-  useGetGamesQuery
+  useGetGameByIdQuery
 } from '@nx-react-express/redux/features/games/games-api-slice';
-import { useAppSelector } from '@nx-react-express/redux/hooks';
 import { globalStyles } from '@nx-react-express/shared/styles';
 import { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
@@ -30,22 +23,22 @@ type GameDetailParams = { id: string };
 export type GameDetailProps = RouteComponentProps<GameDetailParams>;
 
 export function GameDetail(props: GameDetailProps) {
-  // const {
-  //   data: game = [],
-  //   isError,
-  //   isFetching, // NOTE: first load only
-  //   isLoading // NOTE: Subsequent loading
-  // } = useGetGamesQuery();
-
-  /**
-   * NOTE: could also use the useGetGameQuery hook
-   */
   const {
     data: game = {} as Game,
     isFetching, // NOTE: first load only
     isLoading, // NOTE: Subsequent loading
     isError
   } = useGetGameByIdQuery(props.match.params.id);
+
+  /**
+   * NOTE: could also use the useGetGameQuery hook
+   */
+  // const {
+  //   data: game = [],
+  //   isError,
+  //   isFetching, // NOTE: first load only
+  //   isLoading // NOTE: Subsequent loading
+  // } = useGetGamesQuery();
 
   useEffect(() => {
     console.log('game:', game);
