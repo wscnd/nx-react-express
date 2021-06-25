@@ -22,7 +22,11 @@
               },
               {
                 "sourceTag": "scope:redux",
-                "onlyDependOnLibsWithTags": ["scope:redux", "scope:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:redux",
+                  "scope:shared",
+                  "scope:types"
+                ]
               },
               {
                 "sourceTag": "scope:types",

@@ -2,3 +2,18 @@
   max-width: 800px;
   margin: 50px auto;
 }
+
+.game-card {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .game-rating {
+    padding-top: 10px;
+  }
+}
+
+.game-card-media {
+  height: 140px;
+}

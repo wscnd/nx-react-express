@@ -1,30 +1,87 @@
 import './GameDetail.module.scss';
 
-import React from 'react';
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useState
+} from 'react';
 
 import { RouteComponentProps } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-// import styles from './GameDetail.module.scss';
+import {
+  useGetGameByIdQuery,
+  useGetGamesQuery
+} from '@nx-react-express/shared/redux/features/games/games-api-slice';
+import { useAppSelector } from '@nx-react-express/shared/redux/hooks';
 import { globalStyles } from '@nx-react-express/shared/styles';
+import { Game } from '@nx-react-express/shared/types';
+import { formatRating } from '@nx-react-express/shared/utils/formatters';
 
-/* eslint-disable-next-line */
+import styles from './GameDetail.module.scss';
 
 type GameDetailParams = { id: string };
 
 export type GameDetailProps = RouteComponentProps<GameDetailParams>;
 
 export function GameDetail(props: GameDetailProps) {
+  // const {
+  //   data: game = [],
+  //   isError,
+  //   isFetching, // NOTE: first load only
+  //   isLoading // NOTE: Subsequent loading
+  // } = useGetGamesQuery();
+
+  /**
+   * NOTE: could also use the useGetGameQuery hook
+   */
+  const {
+    data: game = {} as Game,
+    isFetching, // NOTE: first load only
+    isLoading, // NOTE: Subsequent loading
+    isError
+  } = useGetGameByIdQuery(props.match.params.id);
+
+  useEffect(() => {
+    console.log('game:', game);
+  });
+
+  if (isError) {
+    return <div> Error loading data!</div>;
+  }
+
+  if (isFetching) {
+    return <div>Fetching!</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading!</div>;
+  }
+
   return (
     <div className={`${globalStyles.container}`}>
       <Card>
         <CardActionArea>
+          <CardMedia
+            className={styles['game-card-media']}
+            title={game.name}
+            image={game.image}
+          />
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {props.match.params.id}
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              className={globalStyles['center-content']}
+            >
+              {isFetching
+                ? 'Loading...'
+                : `${game.name}: ${formatRating(game.rating)}`}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -32,5 +89,3 @@ export function GameDetail(props: GameDetailProps) {
     </div>
   );
 }
-
-export default GameDetail;

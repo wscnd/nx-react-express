@@ -42,17 +42,6 @@ export default function App() {
     []
   );
 
-  // const [games, setGames] = useState<Game[]>([]);
-
-  // useEffect(() => {
-  //   async function getGames() {
-  //     const request = await fetch('/api/games');
-  //     const { data }: { data: Game[] } = await request.json();
-  //     setGames(data);
-  //   }
-  //   getGames();
-  // }, []);
-
   console.log(process.env);
 
   return (

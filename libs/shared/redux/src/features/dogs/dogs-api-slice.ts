@@ -13,14 +13,11 @@ interface Breed {
   };
 }
 
-console.log(process.env.DOGS_API_KEY);
-console.log(process.env.DOGS_API_URL);
-
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.DOGS_API_URL,
-    // baseUrl: 'https://api.thedogapi.com/v1',
+    // baseUrl: process.env.DOGS_API_URL,
+    baseUrl: 'https://api.thedogapi.com/v1',
     prepareHeaders(headers) {
       headers.set('x-api-key', process.env.DOGS_API_KEY);
 

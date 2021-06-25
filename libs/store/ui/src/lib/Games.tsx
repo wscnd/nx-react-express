@@ -14,6 +14,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import {
+  useGetGameByIdQuery,
+  useGetGamesQuery
+} from '@nx-react-express/shared/redux/features/games/games-api-slice';
 import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
 
@@ -23,16 +27,16 @@ import styles from './Games.module.scss';
 export interface GamesProps {}
 export function Games(props: GamesProps) {
   const history = useHistory();
-  const [games, setGames] = useState<Game[]>([]);
+  const {
+    data: games = [],
+    isFetching, // NOTE: first load only
+    isLoading // NOTE: Subsequent loading
+  } = useGetGamesQuery();
 
-  useEffect(() => {
-    async function getGames() {
-      const request = await fetch('/api/games');
-      const { data }: { data: Game[] } = await request.json();
-      setGames(data);
-    }
-    getGames();
-  }, []);
+  if (isFetching) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className={styles['games-layout']}>
       {games.map((game) => (
@@ -61,6 +65,7 @@ export function Games(props: GamesProps) {
                 component="p"
                 className={styles['game-rating']}
               >
+                asdfasdf
                 <strong>Rating:</strong> {formatRating(game.rating)}
               </Typography>
             </CardContent>

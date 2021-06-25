@@ -4,6 +4,7 @@
  */
 
 import * as express from 'express';
+import { Request } from 'express-serve-static-core';
 
 import {
   getAllGames,
@@ -17,14 +18,18 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.send({ data: { routes: ['/api/games/$id', '/api/games'] } });
+  res.send({ data: { routes: ['/api/games/search?=$id', '/api/games'] } });
 });
 
-app.get('/api/games/:id', (req, res) => {
-  res.json({ data: getGame(req.params.id) });
-  res.end();
-  // res.send({ message: 'Welcome to api!' });
-});
+app.get(
+  '/api/games/search',
+  (req: Request<unknown, unknown, unknown, { id: string }>, res) => {
+    const query = (req.query.id || '').toLowerCase();
+    const search = query.length ? getGame(query) : getAllGames();
+    res.json({ data: search });
+    res.end();
+  }
+);
 
 app.get('/api/games', (req, res) => {
   res.send({ data: getAllGames() });
