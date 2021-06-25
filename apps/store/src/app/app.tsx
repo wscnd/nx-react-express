@@ -1,10 +1,12 @@
 import React, {
   Fragment,
   useEffect,
+  useMemo,
   useState
 } from 'react';
 
 import {
+  Link,
   Route,
   useHistory
 } from 'react-router-dom';
@@ -14,72 +16,54 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Header } from '@nx-react-express/shared/components';
+import {
+  Header,
+  HeaderProps
+} from '@nx-react-express/shared/components';
 import { globalStyles } from '@nx-react-express/shared/styles/global-styles';
 import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
-import { GameDetail } from '@nx-react-express/store/ui';
+import {
+  Counter,
+  GameDetail,
+  Games
+} from '@nx-react-express/store/ui';
 
 import styles from './app.module.scss';
 
 export default function App() {
   const history = useHistory();
-  const [games, setGames] = useState<Game[]>([]);
 
-  useEffect(() => {
-    async function getGames() {
-      const request = await fetch('/api/games');
-      const { data }: { data: Game[] } = await request.json();
-      setGames(data);
-    }
-    getGames();
-  }, []);
+  const headerPages = useMemo(
+    () => [
+      { url: '/game', name: 'Games', id: 1 },
+      { url: '/counter', name: 'Redux Examples', id: 2 }
+    ],
+    []
+  );
+
+  // const [games, setGames] = useState<Game[]>([]);
+
+  // useEffect(() => {
+  //   async function getGames() {
+  //     const request = await fetch('/api/games');
+  //     const { data }: { data: Game[] } = await request.json();
+  //     setGames(data);
+  //   }
+  //   getGames();
+  // }, []);
+
+  console.log(process.env);
 
   return (
     <Fragment>
-      <Header />
+      <Header pages={headerPages} />
       <div className={`${globalStyles.container}`}>
-        <div className={styles['games-layout']}>
-          {games.map((game) => (
-            <Card
-              key={game.id}
-              className={styles['game-card']}
-              onClick={() => history.push(`/game/${game.id}`)}
-            >
-              <CardActionArea>
-                <CardMedia
-                  className={styles['game-card-media']}
-                  title={game.name}
-                  image={game.image}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {game.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {game.description}
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                    className={styles['game-rating']}
-                  >
-                    <strong>Rating:</strong> {formatRating(game.rating)}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          ))}
-        </div>
+        <Route path="/game" render={(props) => <Games {...props} />} />
+        <Route path="/game/:id" render={(props) => <GameDetail {...props} />} />
       </div>
 
-      <Route path="/game/:id" render={(props) => <GameDetail {...props} />} />
+      <Route path="/counter" render={(props) => <Counter {...props} />} />
     </Fragment>
   );
 }
