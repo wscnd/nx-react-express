@@ -57,11 +57,17 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["tsconfig.base.json"]
+      },
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {}
     },
     {
       "files": ["*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["tsconfig.base.json"]
+      },
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
     },
