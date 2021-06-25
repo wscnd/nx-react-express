@@ -1,6 +1,14 @@
 import './Header.module.scss';
 
-import { makeStyles } from '@material-ui/core';
+import React, { useEffect } from 'react';
+
+import { Link as RouterLink } from 'react-router-dom';
+
+import {
+  Button,
+  IconButton,
+  makeStyles
+} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -17,18 +25,35 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-/* eslint-disable-next-line */
-export interface HeaderProps {}
+export interface HeaderProps {
+  pages: {
+    name: string;
+    url: string;
+    id: number;
+  }[];
+}
 
 export function Header(props: HeaderProps) {
   const classes = useStyles();
+  const { pages } = props;
+
+  useEffect(() => {
+    console.log(props.pages);
+  }, [props.pages]);
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+        <Typography className={classes.title} variant="h6" noWrap>
           Board Game Hoard
         </Typography>
+        {pages.map((page) => (
+          <RouterLink key={page.id} to={page.url}>
+            <Button color="primary" variant="contained">
+              {page.name}
+            </Button>
+          </RouterLink>
+        ))}
       </Toolbar>
     </AppBar>
   );
