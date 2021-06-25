@@ -1,5 +1,8 @@
 import { Game } from '@nx-react-express/shared/types';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {
+  createApi,
+  fetchBaseQuery
+} from '@reduxjs/toolkit/query/react';
 
 // NOTE: not mine and the one who generated it didn't care much to share the api key
 // TODO: use environment variables
@@ -20,7 +23,7 @@ function providesList<R extends { id: string | number }[], T extends string>(
 }
 
 export const gameSlice = createApi({
-  reducerPath: 'games',
+  reducerPath: 'games-api',
   baseQuery: fetchBaseQuery({
     baseUrl: '/api/',
   }),

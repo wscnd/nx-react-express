@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState
+} from 'react';
 
-import { Link, Route, useHistory } from 'react-router-dom';
+import {
+  Link as RouterLink,
+  Route,
+  useHistory
+} from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,7 +16,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {
   useGetGameByIdQuery,
-  useGetGamesQuery,
+  useGetGamesQuery
 } from '@nx-react-express/redux/features/games/games-api-slice';
 import type { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
@@ -23,7 +30,7 @@ export function Games(props: GamesProps) {
   const {
     data: games = [],
     isFetching, // NOTE: first load only
-    isLoading, // NOTE: Subsequent loading
+    isLoading // NOTE: Subsequent loading
   } = useGetGamesQuery();
 
   if (isFetching) {
@@ -36,9 +43,8 @@ export function Games(props: GamesProps) {
         <Card
           key={game.id}
           className={styles['game-card']}
-          onClick={() => history.push(`/game/${game.id}`)}
         >
-          <CardActionArea>
+          <CardActionArea component={RouterLink} to={`/game/${game.id}`}>
             <CardMedia
               className={styles['game-card-media']}
               title={game.name}
@@ -58,7 +64,6 @@ export function Games(props: GamesProps) {
                 component="p"
                 className={styles['game-rating']}
               >
-                asdfasdf
                 <strong>Rating:</strong> {formatRating(game.rating)}
               </Typography>
             </CardContent>

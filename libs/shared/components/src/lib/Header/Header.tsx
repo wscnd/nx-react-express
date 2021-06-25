@@ -31,6 +31,7 @@ export interface HeaderProps {
     url: string;
     id: number;
   }[];
+  title: string;
 }
 
 export function Header(props: HeaderProps) {
@@ -45,14 +46,25 @@ export function Header(props: HeaderProps) {
     <AppBar position="static">
       <Toolbar>
         <Typography className={classes.title} variant="h6" noWrap>
-          Board Game Hoard
+          <Button
+            component={RouterLink}
+            to="/"
+            color="primary"
+            variant="contained"
+          >
+            {props.title}
+          </Button>
         </Typography>
         {pages.map((page) => (
-          <RouterLink key={page.id} to={page.url}>
-            <Button color="primary" variant="contained">
-              {page.name}
-            </Button>
-          </RouterLink>
+          <Button
+            component={RouterLink}
+            key={page.id}
+            to={page.url}
+            color="primary"
+            variant="contained"
+          >
+            {page.name}
+          </Button>
         ))}
       </Toolbar>
     </AppBar>

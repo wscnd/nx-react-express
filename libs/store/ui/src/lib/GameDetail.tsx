@@ -44,7 +44,7 @@ export function GameDetail(props: GameDetailProps) {
     data: game = {} as Game,
     isFetching, // NOTE: first load only
     isLoading, // NOTE: Subsequent loading
-    isError,
+    isError
   } = useGetGameByIdQuery(props.match.params.id);
 
   useEffect(() => {
