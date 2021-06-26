@@ -1,5 +1,7 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const rootWebpackConfig = require('../../../../.storybook/webpack.config');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /**
  * Export a function. Accept the base config as the only param.
  *
@@ -24,11 +26,49 @@ module.exports = async ({ config, mode }) => {
 
     return test.toString().startsWith('/\\.(svg|ico');
   });
+
   config.module.rules[
     svgRuleIndex
   ].test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/;
 
+  console.log('process env is ', mode);
+
+  const isDevelopment = mode === 'DEVELOPMENT';
+
   config.module.rules.push(
+    {
+      test: /\.module\.s(a|c)ss$/,
+      loader: [
+        isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            sourceMap: isDevelopment,
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: isDevelopment,
+          },
+        },
+      ],
+    },
+    {
+      test: /\.s(a|c)ss$/,
+      exclude: /\.module.(s(a|c)ss)$/,
+      loader: [
+        isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: isDevelopment,
+          },
+        },
+      ],
+    },
     {
       test: /\.(png|jpe?g|gif|webp)$/,
       loader: require.resolve('url-loader'),
@@ -77,7 +117,18 @@ module.exports = async ({ config, mode }) => {
           ],
         },
       ],
-    }
+    },
+  );
+
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+    }),
+    // new MiniCssExtractPlugin({
+    //   filename: '[name].css',
+    //   chunkFilename: '[id].css',
+    // }),
   );
 
   return config;

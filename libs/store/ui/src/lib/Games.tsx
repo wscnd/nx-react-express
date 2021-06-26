@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
   Link as RouterLink,
@@ -26,6 +26,11 @@ export function Games(props: GamesProps) {
     isFetching, // NOTE: first load only
     isLoading // NOTE: Subsequent loading
   } = useGetGamesQuery();
+
+
+  useEffect(() => {
+    console.log('games props:', props);
+  });
 
   if (isFetching) {
     return <div>Loading...</div>;

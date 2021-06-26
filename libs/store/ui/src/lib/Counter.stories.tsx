@@ -1,14 +1,20 @@
 import React from 'react';
-import { Counter, CounterProps } from './Counter';
+
+import {
+  Meta,
+  Story
+} from '@storybook/react/types-6-0';
+
+import {
+  Counter,
+  CounterProps
+} from './Counter';
 
 export default {
   component: Counter,
-  title: 'Counter',
-};
+  title: 'Counter'
+} as Meta;
 
-export const primary = () => {
-  /* eslint-disable-next-line */
-  const props: CounterProps = {};
+const Template: Story<CounterProps> = (args) => <Counter {...args} />;
 
-  return <Counter />;
-};
+export const Primary = Template.bind({});

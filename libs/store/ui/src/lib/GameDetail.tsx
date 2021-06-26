@@ -41,7 +41,7 @@ export function GameDetail(props: GameDetailProps) {
   // } = useGetGamesQuery();
 
   useEffect(() => {
-    console.log('game:', game);
+    console.log('GameDetail props:', props);
   });
 
   if (isError) {
@@ -82,3 +82,5 @@ export function GameDetail(props: GameDetailProps) {
     </div>
   );
 }
+
+export default GameDetail;

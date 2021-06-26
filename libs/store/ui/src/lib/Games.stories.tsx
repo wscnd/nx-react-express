@@ -1,14 +1,37 @@
 import React from 'react';
-import { Games, GamesProps } from './Games';
+
+import { createMemoryHistory } from 'history';
+import {
+  BrowserRouter,
+  MemoryRouter,
+  Route,
+  Router
+} from 'react-router-dom';
+
+import {
+  Meta,
+  Story
+} from '@storybook/react/types-6-0';
+
+import { GameDetail } from './GameDetail';
+import {
+  Games,
+  GamesProps
+} from './Games';
 
 export default {
   component: Games,
   title: 'Games',
-};
+  decorators: [
+    (Story) => (
+      <MemoryRouter initialEntries={['/game/']}>
+        <Route path="/game" render={() => <Story />} />
+        <Route path="/game/:id" render={(props) => <GameDetail {...props} />} />
+      </MemoryRouter>
+    )
+  ]
+} as Meta;
 
-export const primary = () => {
-  /* eslint-disable-next-line */
-  const props: GamesProps = {};
+const Template: Story<GamesProps> = (args) => <Games {...args} />;
 
-  return <Games />;
-};
+export const Primary = Template.bind({});
