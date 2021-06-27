@@ -1,20 +1,11 @@
 import './Dogs.module.scss';
 
-import React, {
-  useCallback,
-  useEffect,
-  useState
-} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import {
-  MenuItem,
-  Select
-} from '@material-ui/core';
-import {
-  useFetchBreedsQuery
-} from '@nx-react-express/redux/features/dogs/dogs-api-slice';
+import { MenuItem, Select } from '@material-ui/core';
+import { useFetchBreedsQuery } from '@nx-react-express/redux/features/dogs/dogs-api-slice';
 
 import styles from './Dogs.module.scss';
 
@@ -27,7 +18,7 @@ export function Dogs(props: DogsProps) {
   const history = useHistory();
 
   const [numDogs, setNumDogs] = useState(
-    Number(props.query) > 20 ? 20 : Number(props.query) || 10 // NOTE: ugly but works
+    Number(props.query) > 20 ? 20 : Number(props.query) || 10, // NOTE: ugly but works
   );
   const { data = [], isFetching } = useFetchBreedsQuery(numDogs);
 
@@ -36,13 +27,13 @@ export function Dogs(props: DogsProps) {
       e: React.ChangeEvent<{
         name?: string | undefined;
         value: unknown;
-      }>
+      }>,
     ) => {
       const dogsToFetch = Number(e.target.value);
       setNumDogs(dogsToFetch);
       history.push(`/dogs?quantity=${dogsToFetch}`);
     },
-    [history]
+    [history],
   );
 
   useEffect(() => {

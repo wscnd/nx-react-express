@@ -1,7 +1,7 @@
 import { Game } from '@nx-react-express/shared/types';
 import {
   createApi,
-  fetchBaseQuery
+  fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
 
 // NOTE: not mine and the one who generated it didn't care much to share the api key
@@ -12,7 +12,7 @@ import {
 
 function providesList<R extends { id: string | number }[], T extends string>(
   resultsWithIds: R | undefined,
-  tagType: T
+  tagType: T,
 ) {
   return resultsWithIds
     ? [

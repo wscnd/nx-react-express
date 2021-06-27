@@ -8,7 +8,7 @@ import { Request } from 'express-serve-static-core';
 
 import {
   getAllGames,
-  getGame
+  getGame,
 } from '@nx-react-express/db';
 
 const app = express();
@@ -28,7 +28,7 @@ app.get(
     const search = query.length ? getGame(query) : getAllGames();
     res.json({ data: search });
     res.end();
-  }
+  },
 );
 
 app.get('/api/games', (req, res) => {

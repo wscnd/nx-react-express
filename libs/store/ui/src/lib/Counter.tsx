@@ -1,18 +1,10 @@
 import './Counter.module.scss';
 
-import React, {
-  useCallback,
-  useEffect
-} from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { Button } from '@material-ui/core';
-import {
-  amountAdded
-} from '@nx-react-express/redux/features/counter/counter-slice';
-import {
-  useAppDispatch,
-  useAppSelector
-} from '@nx-react-express/redux/hooks';
+import { amountAdded } from '@nx-react-express/redux/features/counter/counter-slice';
+import { useAppDispatch, useAppSelector } from '@nx-react-express/redux/hooks';
 
 import styles from './Counter.module.scss';
 

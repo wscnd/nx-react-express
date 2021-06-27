@@ -5,13 +5,13 @@ module.exports = {
       name: '@storybook/addon-essentials',
       addons: ['@storybook/addon-controls'],
       options: {
-        backgrounds: true
-      }
+        backgrounds: true,
+      },
     },
-    'storybook-addon-material-ui'
+    'storybook-addon-material-ui',
   ],
   // Added to fix the bug:  https://github.com/styleguidist/react-docgen-typescript/issues/356
   typescript: {
-    reactDocgen: 'react-docgen'
-  }
+    reactDocgen: 'react-docgen',
+  },
 };

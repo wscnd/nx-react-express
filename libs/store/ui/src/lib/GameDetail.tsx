@@ -9,9 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import {
-  useGetGameByIdQuery
-} from '@nx-react-express/redux/features/games/games-api-slice';
+import { useGetGameByIdQuery } from '@nx-react-express/redux/features/games/games-api-slice';
 import { globalStyles } from '@nx-react-express/shared/styles';
 import { Game } from '@nx-react-express/shared/types';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
@@ -27,7 +25,7 @@ export function GameDetail(props: GameDetailProps) {
     data: game = {} as Game,
     isFetching, // NOTE: first load only
     isLoading, // NOTE: Subsequent loading
-    isError
+    isError,
   } = useGetGameByIdQuery(props.match.params.id);
 
   /**

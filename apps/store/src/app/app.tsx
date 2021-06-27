@@ -1,11 +1,11 @@
 import React, {
   Fragment,
-  useMemo
+  useMemo,
 } from 'react';
 
 import {
   Route,
-  useLocation
+  useLocation,
 } from 'react-router-dom';
 
 import { Header } from '@nx-react-express/shared/components';
@@ -14,7 +14,7 @@ import {
   Counter,
   Dogs,
   GameDetail,
-  Games
+  Games,
 } from '@nx-react-express/store/ui';
 
 function useQuery() {
@@ -28,9 +28,9 @@ export default function App() {
     () => [
       { url: '/game', name: 'Games', id: 1 },
       { url: '/counter', name: 'Counter ', id: 2 },
-      { url: '/dogs', name: 'Dogs ', id: 3 }
+      { url: '/dogs', name: 'Dogs ', id: 3 },
     ],
-    []
+    [],
   );
 
   console.log(process.env);

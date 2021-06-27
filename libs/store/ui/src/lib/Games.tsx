@@ -1,18 +1,13 @@
 import React, { useEffect } from 'react';
 
-import {
-  Link as RouterLink,
-  useHistory
-} from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import {
-  useGetGamesQuery
-} from '@nx-react-express/redux/features/games/games-api-slice';
+import { useGetGamesQuery } from '@nx-react-express/redux/features/games/games-api-slice';
 import { formatRating } from '@nx-react-express/shared/utils/formatters';
 
 import styles from './Games.module.scss';
@@ -24,9 +19,8 @@ export function Games(props: GamesProps) {
   const {
     data: games = [],
     isFetching, // NOTE: first load only
-    isLoading // NOTE: Subsequent loading
+    isLoading, // NOTE: Subsequent loading
   } = useGetGamesQuery();
-
 
   useEffect(() => {
     console.log('games props:', props);

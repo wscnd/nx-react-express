@@ -8,6 +8,6 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/libs/shared/styles',
     '<rootDir>/libs/shared/hooks',
-    '<rootDir>/libs/redux'
-  ]
+    '<rootDir>/libs/redux',
+  ],
 };
